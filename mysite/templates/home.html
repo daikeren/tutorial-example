@@ -19,7 +19,7 @@
             <div class="post">
                 <div class="post-heading">
                     <h2 class="title">
-                        <a href="#">{{ post.title }}</a>
+                        <a href="{% url 'post_detail' id=post.id %}">{{ post.title }}</a>
                     </h2>
                     <div class="date">{{ post.created_at|date:"Y / m / d" }}</div>
                 </div>
@@ -34,7 +34,7 @@
                     {{ post.content }}
                 </div>
                 <div class="post-footer">
-                    <a class="read-more" href="#">
+                    <a class="read-more" href="{% url 'post_detail' id=post.id %}">
                         Read More <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
