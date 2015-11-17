@@ -9,9 +9,18 @@
 </head>
 <body>
     <div class="header">
-        <h1 class="site-title text-center">
+        <h1 class="site-title text-center inline-block" style="display: inline-block; margin: 0 5px;">
             <a href="/">A Django Girl's Adventure</a>
         </h1>
+        <div style="display: inline-block; position: absolute; right: 3px;">
+            {% if user.is_authenticated %}
+                <span style="font-size:20px;">{{ user.username }}</span>
+                <img style="width: 50px;" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="">
+                <a href="{% url 'account_logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'account_login' %}">Login</a>
+            {% endif %}
+        </div>
     </div>
     <div class="container">
         {% for post in post_list %}
