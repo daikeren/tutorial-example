@@ -44,6 +44,15 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.facebook',
 )
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+ACCOUNT_LOGOUT_ON_GET = True
+
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -95,9 +104,6 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
 )
 
-AUTHENTICATION_BACKENDS = (
-    "allauth.account.auth_backends.AuthenticationBackend",
-)
 
 SITE_ID = 1
 
